@@ -1,0 +1,13 @@
+fn conf_enable_search {
+    enable_search=yes
+    conf_enable_app search
+}
+
+fn search_init {
+    if(! ~ $#enable_search 0) {
+        ll_add handlers_bar_left tpl_handler apps/search/sidebar_controls.tpl
+        if(~ 1 $#post_arg_search_app_submit) {
+            ll_add handlers_bar_left tpl_handler `{get_lib_file search/search-results.tpl apps/search/search-results.tpl}
+        }
+    }
+}
