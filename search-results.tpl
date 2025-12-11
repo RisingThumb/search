@@ -1,3 +1,4 @@
+<div class="app_navbar_search_results">
 <h1>Pages with this search query:</h1>
 <blockquote>%(`{echo $post_arg_search_app_query | escape_html}%)</blockquote>
 <ul>
@@ -19,3 +20,4 @@
 % if(~ $#ripgrep_matches 0 || ){
 <p>No matches for this query</p>
 % }
+</div>
