@@ -7,6 +7,7 @@ fn search_init {
     if(! ~ $#enable_search 0) {
         ll_add handlers_bar_left tpl_handler apps/search/sidebar_controls.tpl
         if(~ 1 $#post_arg_search_app_submit) {
+            search_val = `{cat /tmp/$post_arg_search_app_query | dos2unix}
             ll_add handlers_bar_left tpl_handler `{get_lib_file search/search-results.tpl apps/search/search-results.tpl}
         }
     }

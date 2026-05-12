@@ -1,6 +1,6 @@
 <div class="app_navbar_search_results">
 <h1>Pages with this search query:</h1>
-<blockquote>%(`{echo $post_arg_search_app_query | escape_html}%)</blockquote>
+<blockquote>%(`{echo $search_val | escape_html}%)</blockquote>
 <ul>
 % start_path=`{pwd}^/sites/
 % search_path=$start_path^$SERVER_NAME
@@ -8,7 +8,7 @@
 %     search_path=$search_path^$req_path
 % }
 % if(! ~ $#post_arg_search_app_query 0){
-%     ripgrep_matches=`{rg -i -l $post_arg_search_app_query $search_path -g '!*_werc*' -g '!**/_*' -g '!*.meta'}
+%     ripgrep_matches=`{rg -i -l $search_val $search_path -g '!*_werc*' -g '!**/_*' -g '!*.meta'}
 % }
 % for(match in $ripgrep_matches){
 <li>
